@@ -46,7 +46,7 @@
       "reactCompiler": true
     },
     "androidNavigationBar": {
-      "visible": "immersive"
+      "visible": "leanback"
     }
   }
 }
