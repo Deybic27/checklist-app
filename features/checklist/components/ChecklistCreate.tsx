@@ -1,4 +1,5 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
+import { useThemeColor } from "@/hooks/use-theme-color";
 import { ThemedCard } from "@/shared/components/themed-card";
 import { ThemedCardContainer } from "@/shared/components/themed-card-container";
 import { ThemedPressable } from "@/shared/components/themed-pressable";
@@ -7,11 +8,16 @@ import { useState } from "react";
 import { StyleSheet } from "react-native";
 type ChecklistCreateProps ={
     onAdd : (text: string) => void;
+    lightColor?: string;
+    darkColor?: string;
 }
 
 export function ChecklistCreate({
     onAdd,
+    lightColor, 
+    darkColor,
 }: ChecklistCreateProps) {
+    const iconColor = useThemeColor({ light: lightColor, dark: darkColor }, 'backgroundSection')
     const [text, setText] = useState("");
     const handleCreate = () => {
         try {
@@ -35,7 +41,7 @@ export function ChecklistCreate({
                 </ThemedCard>
                 <ThemedCard style={styles.secondColumn}>
                     <ThemedPressable onPress={handleCreate}>
-                        <IconSymbol style={styles.icon} size={45} name="speaker.wave.1" color={"#fff"} />
+                        <IconSymbol style={styles.icon} size={45} name="speaker.wave.1" color={iconColor} />
                     </ThemedPressable>
                 </ThemedCard>
             </ThemedCard>

@@ -1,4 +1,5 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
+import { useThemeColor } from "@/hooks/use-theme-color";
 import { ThemedCard } from "@/shared/components/themed-card";
 import { ThemedCardContainer } from "@/shared/components/themed-card-container";
 import { ThemedPressable } from "@/shared/components/themed-pressable";
@@ -12,6 +13,8 @@ type ChecklistCardProps = {
     completed : 1 | 0;
     onRemove : (id: number, complete: 1 | 0) => void;
     onComplete : (id: number, complete: 1 | 0) => void;
+    lightColor?: string;
+    darkColor?: string;
 }
 
 export function ChecklistCard({
@@ -20,9 +23,13 @@ export function ChecklistCard({
     completed,
     onRemove,
     onComplete,
+    lightColor,
+    darkColor,
 }: ChecklistCardProps) {
     const [editing, setEditing] = useState(false)
     const [readOnly, setReadOnly] = useState(true)
+    const iconColor = useThemeColor({ light: lightColor, dark: darkColor }, 'backgroundSection')
+
     function handleDelete() {
         onRemove(id, completed);
         // Alert.alert("Mensaje", "Item eliminado");
@@ -49,12 +56,13 @@ export function ChecklistCard({
             <ThemedCard style={styles.firstLine}>
                 <ThemedCard style={styles.firstColumn}>
                     <ThemedPressable style={styles.button} type="default" onPress={() =>handleCheck()}>
-                        <IconSymbol style={[styles.icon, completed && { display: "none" }]} size={45} name="square" color={"#fff"} />
-                        <IconSymbol style={[styles.icon, !completed && { display: "none" }]} size={45} name="square.2.layers.3d" color={"#fff"} />
+                        <IconSymbol style={[styles.icon, completed && { display: "none" }]} size={45} name="square" color={iconColor} />
+                        <IconSymbol style={[styles.icon, !completed && { display: "none" }]} size={45} name="square.2.layers.3d" color={iconColor} />
                     </ThemedPressable>
                 </ThemedCard>
                 <ThemedCard style={styles.secondColumn}>
-                    <ThemedPressable onPress={() => setReadOnly(false)}>
+                    {/* <ThemedPressable onPress={() => setReadOnly(false)}> */}
+                    <ThemedPressable>
                         <ThemedTextInput
                             readOnly={readOnly}
                             onFocus={() => setEditing(true)}
@@ -65,10 +73,10 @@ export function ChecklistCard({
                 </ThemedCard>
                 <ThemedCard style={styles.thirdColumn}>
                     <ThemedPressable style={[styles.button, editing && { display: "none" }]} type="default" onPress={() => handleDelete()}>
-                        <IconSymbol style={styles.icon} size={45} name="delete.right" color={"#fff"} />
+                        <IconSymbol style={styles.icon} size={45} name="delete.right" color={iconColor} />
                     </ThemedPressable>
                     <ThemedPressable style={[styles.button, !editing && { display: "none" }]} type="default" onPress={() => handleUpdate()}>
-                        <IconSymbol style={styles.icon} size={45} name="speaker.wave.1" color={"#fff"} />
+                        <IconSymbol style={styles.icon} size={45} name="speaker.wave.1" color={iconColor} />
                     </ThemedPressable>
                 </ThemedCard>
             </ThemedCard>

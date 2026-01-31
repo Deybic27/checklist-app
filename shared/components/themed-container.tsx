@@ -16,7 +16,7 @@ export function ThemedContainer({ style, lightColor, darkColor, ...otherProps }:
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 30,
+    paddingTop: 5,
     paddingHorizontal: 5,
   },
 });

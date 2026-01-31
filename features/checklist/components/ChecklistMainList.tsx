@@ -17,7 +17,7 @@ export function ChecklistMainList() {
 
     return (
         <ThemedContainer style={styles.container}>
-            <ThemedSectionContainer style={[styles.firstLine, activeViewCompleted && {flex: 1} || !activeViewCompleted && {flex: 8}]}>
+            <ThemedSectionContainer style={[styles.firstLine, activeViewCompleted && {flex: 1, borderBottomStartRadius: 0, borderBottomEndRadius: 0 } || !activeViewCompleted && {flex: 10}]}>
                 <ThemedSectionTitleContainer style={styles.titleContainer}>
                     <ThemedSectionText style={styles.title} type="title">Mi Lista</ThemedSectionText>
                 </ThemedSectionTitleContainer>
@@ -32,7 +32,7 @@ export function ChecklistMainList() {
                     />
                 </ThemedSectionContainer>
             </ThemedSectionContainer>
-            <ThemedSectionContainer style={[ styles.secondLine, activeViewCompleted && {flex: 8} || !activeViewCompleted && {flex: 1}]}>
+            <ThemedSectionContainer style={[ styles.secondLine, activeViewCompleted && { flex: 10 } || !activeViewCompleted && {flex: 1, borderBottomStartRadius: 0, borderBottomEndRadius: 0 }]}>
                 <ThemedPressable onPress={() => setActiveViewCompleted(activeViewCompleted ? false : true)}>
                     <ThemedSectionTitleContainer style={styles.titleContainer}>
                         <ThemedSectionText style={styles.title} type="title">Completados</ThemedSectionText>
@@ -59,8 +59,7 @@ const styles = StyleSheet.create({
     titleContainer: {
         width: "100%",
         paddingVertical: 0,
-        flexDirection: 'column',
-        alignItems: 'center',
+        flexDirection: 'row',
         gap: 8,
         // borderWidth: 1,
         // borderColor: "#fff"
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
     firstLine: {
         display: "flex",
         // flex: 1,
-        flex: 8,
+        // flex: 8,
         marginBottom: 5,
     },
     firstLine__sectionUncompleteList: {
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     secondLine: {
         display: "flex",
         // flex: 8,
-        flex: 1,
+        // flex: 1,
         // height: "100%"
         transitionProperty: "flex",
         transitionDuration: "100s",
