@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
     marginBottom: 10,
-    borderWidth: 1,
+    borderBottomWidth: 1,
   },
 });

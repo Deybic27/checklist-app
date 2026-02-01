@@ -17,7 +17,12 @@ export function ChecklistMainList() {
 
     return (
         <ThemedContainer style={styles.container}>
-            <ThemedSectionContainer style={[styles.firstLine, activeViewCompleted && {flex: 1, borderBottomStartRadius: 0, borderBottomEndRadius: 0 } || !activeViewCompleted && {flex: 10}]}>
+            <ThemedSectionContainer
+                style={
+                    [
+                        styles.firstLine, activeViewCompleted && {flex: 1, borderBottomStartRadius: 0, borderBottomEndRadius: 0 } || !activeViewCompleted && {flex: 10}
+                    ]
+                }>
                 <ThemedSectionTitleContainer style={styles.titleContainer}>
                     <ThemedSectionText style={styles.title} type="title">Mi Lista</ThemedSectionText>
                 </ThemedSectionTitleContainer>
@@ -32,19 +37,25 @@ export function ChecklistMainList() {
                     />
                 </ThemedSectionContainer>
             </ThemedSectionContainer>
-            <ThemedSectionContainer style={[ styles.secondLine, activeViewCompleted && { flex: 10 } || !activeViewCompleted && {flex: 1, borderBottomStartRadius: 0, borderBottomEndRadius: 0 }]}>
+            <ThemedSectionContainer 
+                style={
+                    [ 
+                        styles.secondLine,
+                        activeViewCompleted && { flex: 10, marginBottom: 70 } || !activeViewCompleted && {flex: 1, borderBottomStartRadius: 0, borderBottomEndRadius: 0 }
+                    ]
+                }>
                 <ThemedPressable onPress={() => setActiveViewCompleted(activeViewCompleted ? false : true)}>
                     <ThemedSectionTitleContainer style={styles.titleContainer}>
                         <ThemedSectionText style={styles.title} type="title">Completados</ThemedSectionText>
                     </ThemedSectionTitleContainer>
                 </ThemedPressable>
-                <ThemedSection style={styles.secondLine__sectionUncompleteList}>
+                <ThemedSectionContainer style={styles.secondLine__sectionUncompleteList}>
                     <ChecklistCompletedList
                         items={completedItems}
                         onRemoveItem={removeItem}
                         onCompleteItem={completeItem}
                     />
-                </ThemedSection>
+                </ThemedSectionContainer>
             </ThemedSectionContainer>
         </ThemedContainer>
     );
@@ -58,9 +69,6 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         width: "100%",
-        paddingVertical: 0,
-        flexDirection: 'row',
-        gap: 8,
         // borderWidth: 1,
         // borderColor: "#fff"
     },
@@ -90,9 +98,8 @@ const styles = StyleSheet.create({
         display: "flex",
         // flex: 8,
         // flex: 1,
-        // height: "100%"
-        transitionProperty: "flex",
-        transitionDuration: "100s",
+        // transitionProperty: "flex",
+        // transitionDuration: "100s",
     },
     secondLine__sectionUncompleteList: {
         display: "flex",

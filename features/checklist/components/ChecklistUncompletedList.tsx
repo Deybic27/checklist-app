@@ -1,4 +1,4 @@
-import { ThemedSection } from "@/shared/components/themed-section";
+import { ThemedSectionContainer } from "@/shared/components/themed-section-container";
 import { FlatList, StyleSheet } from "react-native";
 import { ChecklistItem } from "../types";
 import { ChecklistCard } from "./ChecklistCard";
@@ -16,7 +16,7 @@ export function ChecklistUncompletedList({
 }: ChecklistUncompletedListProps) {
 
     return (
-        <ThemedSection style={styles.container}>
+        <ThemedSectionContainer style={styles.container}>
             {/* <ThemedView style={styles.titleContainer}>
                 <ThemedText type="title">Mi Lista</ThemedText>
             </ThemedView> */}
@@ -36,7 +36,7 @@ export function ChecklistUncompletedList({
                     );
                 }}
             />
-        </ThemedSection>
+        </ThemedSectionContainer>
     );
 }
 

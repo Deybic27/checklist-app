@@ -1,4 +1,4 @@
-import { ThemedSection } from "@/shared/components/themed-section";
+import { ThemedSectionContainer } from "@/shared/components/themed-section-container";
 import { FlatList, StyleSheet } from "react-native";
 import { useChecklist } from "../hook/useChecklist";
 import { ChecklistItem } from "../types";
@@ -18,7 +18,7 @@ export function ChecklistCompletedList({
     const { completedItems, removeItem, completeItem, addItem } = useChecklist();
 
     return (
-        <ThemedSection style={styles.container}>
+        <ThemedSectionContainer style={styles.container}>
             <FlatList
                 data={items}
                 keyExtractor={item => item.id.toString()}
@@ -34,7 +34,7 @@ export function ChecklistCompletedList({
                     );
                 }}
             />
-        </ThemedSection>
+        </ThemedSectionContainer>
     );
 }
 
