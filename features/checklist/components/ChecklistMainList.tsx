@@ -1,9 +1,12 @@
+import { IconSymbol } from "@/components/ui/icon-symbol";
+import { useThemeColor } from "@/hooks/use-theme-color";
 import { ThemedContainer } from "@/shared/components/themed-container";
 import { ThemedPressable } from "@/shared/components/themed-pressable";
 import { ThemedSection } from "@/shared/components/themed-section";
 import { ThemedSectionContainer } from "@/shared/components/themed-section-container";
 import { ThemedSectionText } from "@/shared/components/themed-section-text";
 import { ThemedSectionTitleContainer } from "@/shared/components/themed-section-title-container";
+import { Link } from "expo-router";
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { useChecklist } from "../hook/useChecklist";
@@ -11,9 +14,18 @@ import { ChecklistCompletedList } from "./ChecklistCompletedList";
 import { ChecklistCreate } from "./ChecklistCreate";
 import { ChecklistUncompletedList } from "./ChecklistUncompletedList";
 
-export function ChecklistMainList() {
+type ChecklistMainListProps ={
+    lightColor?: string;
+    darkColor?: string;
+}
+
+export function ChecklistMainList({
+    lightColor, 
+    darkColor,
+}: ChecklistMainListProps) {
     const { uncompletedItems, completedItems, removeItem, completeItem, addItem } = useChecklist();
     const [ activeViewCompleted, setActiveViewCompleted ] = useState(false)
+    const iconColor = useThemeColor({ light: lightColor, dark: darkColor }, 'textSection');
 
     return (
         <ThemedContainer style={styles.container}>
@@ -25,6 +37,28 @@ export function ChecklistMainList() {
                 }>
                 <ThemedSectionTitleContainer style={styles.titleContainer}>
                     <ThemedSectionText style={styles.title} type="title">Mi Lista</ThemedSectionText>
+                    <Link style={styles.icon} href="/modal">
+                        <Link.Trigger>
+                            <IconSymbol style={styles.icon} size={45} name="info" color={iconColor} />
+                        </Link.Trigger>
+                        <Link.Preview />
+                        <Link.Menu>
+                        <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
+                        <Link.MenuAction
+                            title="Share"
+                            icon="square.and.arrow.up"
+                            onPress={() => alert('Share pressed')}
+                        />
+                        <Link.Menu title="More" icon="ellipsis">
+                            <Link.MenuAction
+                            title="Delete"
+                            icon="trash"
+                            destructive
+                            onPress={() => alert('Delete pressed')}
+                            />
+                        </Link.Menu>
+                        </Link.Menu>
+                    </Link>
                 </ThemedSectionTitleContainer>
                 <ThemedSection style={styles.sectionList}>
                     <ChecklistCreate onAdd={addItem}/>
@@ -47,6 +81,8 @@ export function ChecklistMainList() {
                 <ThemedPressable onPress={() => setActiveViewCompleted(activeViewCompleted ? false : true)}>
                     <ThemedSectionTitleContainer style={styles.titleContainer}>
                         <ThemedSectionText style={styles.title} type="title">Completados</ThemedSectionText>
+                        <IconSymbol style={[styles.icon, !activeViewCompleted && {opacity: 0}]} size={45} name="arrow.down" color={iconColor} />
+                        <IconSymbol style={[styles.icon, activeViewCompleted && {opacity: 0}]} size={45} name="arrow.up" color={iconColor} />
                     </ThemedSectionTitleContainer>
                 </ThemedPressable>
                 <ThemedSectionContainer style={styles.secondLine__sectionUncompleteList}>
@@ -69,6 +105,8 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
         // borderWidth: 1,
         // borderColor: "yellow"
     },
@@ -110,5 +148,9 @@ const styles = StyleSheet.create({
         display: "flex",
         flex: 1,
         // height: "100%"
+    },
+    icon: {
+        position: "absolute",
+        right: 20,
     },
 });

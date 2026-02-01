@@ -5,12 +5,17 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 
 export default function ModalScreen() {
+  const currentYear = new Date().getFullYear()
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">This is a modal</ThemedText>
-      <Link href="/" dismissTo style={styles.link}>
-        <ThemedText type="link">Go to home screen</ThemedText>
+      <ThemedText type="title">Mi Lista</ThemedText>
+      <Link href="https://sites.google.com/view/mi-lista-privacidad" style={styles.link}>
+        <ThemedText type="link">Ver Política de Privacidad</ThemedText>
       </Link>
+      <Link href="/" dismissTo style={styles.link}>
+        <ThemedText type="link">Volver</ThemedText>
+      </Link>
+      <ThemedText type="default">© {currentYear}</ThemedText>
     </ThemedView>
   );
 }

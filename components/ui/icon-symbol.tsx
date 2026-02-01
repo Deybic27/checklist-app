@@ -21,7 +21,10 @@ const MAPPING = {
   'delete.right': 'delete-outline', // Delete
   'speaker.wave.1': 'check', // Save
   'square': 'check-box-outline-blank', // Unchecked
-  'square.2.layers.3d': 'check-box' // Checked
+  'square.2.layers.3d': 'check-box', // Checked
+  'arrow.down' : 'arrow-drop-down', // Open
+  'arrow.up' : 'arrow-drop-up', // Close
+  'info' : 'info-outline', // Info
 } as IconMapping;
 
 /**
