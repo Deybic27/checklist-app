@@ -17,7 +17,7 @@ export function ChecklistCreate({
     lightColor, 
     darkColor,
 }: ChecklistCreateProps) {
-    const iconColor = useThemeColor({ light: lightColor, dark: darkColor }, 'backgroundSection')
+    const iconColor = useThemeColor({ light: lightColor, dark: darkColor }, 'icon')
     const [text, setText] = useState("");
     const handleCreate = () => {
         if(!text) return;

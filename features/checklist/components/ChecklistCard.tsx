@@ -28,7 +28,7 @@ export function ChecklistCard({
 }: ChecklistCardProps) {
     const [editing, setEditing] = useState(false)
     const [readOnly, setReadOnly] = useState(true)
-    const iconColor = useThemeColor({ light: lightColor, dark: darkColor }, 'backgroundSection')
+    const iconColor = useThemeColor({ light: lightColor, dark: darkColor }, 'icon')
 
     function handleDelete() {
         onRemove(id, completed);

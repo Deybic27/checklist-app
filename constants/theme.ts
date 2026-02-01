@@ -11,13 +11,15 @@ const backgroundColorSectionLight = '#151718';
 const backgroundColorSectionDark = '#fff';
 const textColorSectionLight = '#fff';
 const textColorSectionDark = '#11181C';
+const iconColorSectionLight = '#11181C';
+const iconColorSectionDark = '#fff';
 
 export const Colors = {
   light: {
     text: '#11181C',
     background: '#fff',
     tint: tintColorLight,
-    icon: '#687076',
+    icon: iconColorSectionLight,
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
     backgroundSection: backgroundColorSectionLight,
@@ -27,7 +29,7 @@ export const Colors = {
     text: '#ECEDEE',
     background: '#151718',
     tint: tintColorDark,
-    icon: '#9BA1A6',
+    icon: iconColorSectionDark,
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
     backgroundSection: backgroundColorSectionDark,
