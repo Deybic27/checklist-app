@@ -18,8 +18,6 @@ const styles = StyleSheet.create({
   formContainer: {
     // flex: 1,
     width: "100%",
-    paddingVertical: 0,
-    paddingHorizontal: 0,
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
     marginBottom: 10,

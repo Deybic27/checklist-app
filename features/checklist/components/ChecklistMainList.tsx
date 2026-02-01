@@ -70,15 +70,15 @@ const styles = StyleSheet.create({
     titleContainer: {
         width: "100%",
         // borderWidth: 1,
-        // borderColor: "#fff"
+        // borderColor: "yellow"
     },
     title: {
         width: "100%",
-        paddingVertical: 5,
+        paddingVertical: 10,
         textAlign: "center",
         gap: 8,
         // borderWidth: 1,
-        // borderColor: "#000"
+        // borderColor: "red"
     },
     firstLine: {
         display: "flex",

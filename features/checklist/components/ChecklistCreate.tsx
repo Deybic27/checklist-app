@@ -35,7 +35,7 @@ export function ChecklistCreate({
                     <ThemedPressable>
                         <ThemedTextInput
                             value={text}
-                            placeholder="Cree un item"
+                            placeholder="Crea un item"
                             onChangeText={setText}
                         />
                     </ThemedPressable>
