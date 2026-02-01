@@ -20,6 +20,7 @@ export function ChecklistCreate({
     const iconColor = useThemeColor({ light: lightColor, dark: darkColor }, 'backgroundSection')
     const [text, setText] = useState("");
     const handleCreate = () => {
+        if(!text) return;
         try {
             onAdd(text);
             setText("");
