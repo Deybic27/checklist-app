@@ -6,6 +6,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { initDatabase } from '@/shared/service';
 import { useEffect } from 'react';
+import mobileAds from 'react-native-google-mobile-ads';
 
 export const unstable_settings = {
   anchor: '(tabs)',
@@ -17,6 +18,7 @@ export default function RootLayout() {
   useEffect(() => {
     try {
       initDatabase();
+      mobileAds().initialize();
       console.log("Index loaded");
     } catch(error) {
       console.log("Error loading index");
