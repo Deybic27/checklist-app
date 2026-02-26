@@ -20,7 +20,7 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.deybicjrojas.checklistapp",
+      "package": "com.dgameplay.checklistapp",
       "versionCode": 10200
     },
     "web": {
