@@ -1,9 +1,9 @@
+import { ThemedText } from "@/components/themed-text";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { useThemeColor } from "@/hooks/use-theme-color";
 import { ThemedCard } from "@/shared/components/themed-card";
 import { ThemedCardContainer } from "@/shared/components/themed-card-container";
 import { ThemedPressable } from "@/shared/components/themed-pressable";
-import { ThemedTextInput } from "@/shared/components/themed-text-input";
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 
@@ -63,12 +63,13 @@ export function ChecklistCard({
                 <ThemedCard style={styles.secondColumn}>
                     {/* <ThemedPressable onPress={() => setReadOnly(false)}> */}
                     <ThemedPressable>
-                        <ThemedTextInput
+                        {/* <ThemedTextInput
                             readOnly={readOnly}
                             onFocus={() => setEditing(true)}
                             onBlur={() => handleUpdate()}
                             value={text}
-                        />
+                        /> */}
+                        <ThemedText>{text}</ThemedText>
                     </ThemedPressable>
                 </ThemedCard>
                 <ThemedCard style={styles.thirdColumn}>
@@ -91,16 +92,34 @@ const styles = StyleSheet.create({
     firstLine: {
         width: "100%",
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
     },
     firstColumn: {
+        width: "15%",
         height: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
     },
     secondColumn: {
-        flexGrow: 1,
+        width: "70%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        flexGrow: 1
     },
     thirdColumn: {
+        width: "15%",
         height: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
     },
     button: {
     },

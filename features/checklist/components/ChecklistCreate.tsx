@@ -32,13 +32,11 @@ export function ChecklistCreate({
         <ThemedCardContainer style={styles.container}>
             <ThemedCard style={styles.firstLine}>
                 <ThemedCard style={styles.firstColumn}>
-                    <ThemedPressable>
-                        <ThemedTextInput
-                            value={text}
-                            placeholder="Crea un item"
-                            onChangeText={setText}
-                        />
-                    </ThemedPressable>
+                    <ThemedTextInput
+                        value={text}
+                        placeholder="Crea un item"
+                        onChangeText={setText}
+                    />
                 </ThemedCard>
                 <ThemedCard style={styles.secondColumn}>
                     <ThemedPressable onPress={handleCreate}>
@@ -57,14 +55,22 @@ const styles = StyleSheet.create({
     firstLine: {
         width: "100%",
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
     },
     firstColumn: {
+        width: "85%",
         height: "100%",
         flexGrow: 1,
     },
     secondColumn: {
+        width: "15%",
         height: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        alignItems: "center"
     },
     button: {
     },
