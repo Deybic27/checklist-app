@@ -2,7 +2,7 @@
   "expo": {
     "name": "Mi Lista",
     "slug": "checklist-app",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "checklistapp",
@@ -21,7 +21,7 @@
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.dgameplay.checklistapp",
-      "versionCode": 10200
+      "versionCode": 10201
     },
     "web": {
       "output": "static",
